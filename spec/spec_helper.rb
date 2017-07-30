@@ -13,6 +13,24 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'capybara/rspec'
+require 'snowy_owl'
+require 'snowy_owl/rspec'
+
+Capybara.app_host = "http://localhost:8080/jpetstore/"
+Capybara.run_server = false
+Capybara.default_max_wait_time = 2
+Capybara.register_driver :selenium_chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome,
+                                 desired_capabilities: {
+                                     "chromeOptions" => {
+                                         "args" => [ "--window-size=1440,900","--incognito" ]
+                                     }
+                                 })
+end
+Capybara.default_driver = :selenium_chrome
+Capybara.ignore_hidden_elements = false
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -97,4 +115,15 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+end
+
+SnowyOwl.configure do |config|
+  config.spec_file = "./spec/play_spec.rb"
+  config.props_path = "./spec/props/**/*.yml"
+  config.plots_path = "./spec/plots/**/*.rb"
+  config.determinations_path = "./spec/determinations/**/*.rb"
+  config.play_books_path = "./spec/play_books/**/*.yml"
+  config.persist_path = "#{ENV['HOME']}/functional_tests/"
+  config.is_persisting = true
+  config.is_recovering = false
 end
