@@ -14,10 +14,11 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
+require 'selenium-webdriver'
 require 'snowy_owl'
 require 'snowy_owl/rspec'
 
-Capybara.app_host = "http://localhost:8080/jpetstore/"
+Capybara.app_host = "http://localhost:8080/"
 Capybara.run_server = false
 Capybara.default_max_wait_time = 2
 Capybara.register_driver :selenium_chrome do |app|
@@ -61,6 +62,10 @@ RSpec.configure do |config|
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  config.before do
+    visit '/jpetstore'
+  end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
@@ -124,6 +129,6 @@ SnowyOwl.configure do |config|
   config.determinations_path = "./spec/determinations/**/*.rb"
   config.play_books_path = "./spec/play_books/**/*.yml"
   config.persist_path = "#{ENV['HOME']}/functional_tests/"
-  config.is_persisting = true
+  config.is_persisting = false
   config.is_recovering = false
 end
