@@ -1,7 +1,14 @@
 SnowyOwl::Plots.write 'navigate home page' do
-  page.has_css?('a[href="actions/Catalog.action"]')
-  page.find('a[href="actions/Catalog.action"]').click
-  page.has_css?('div#Header')
-  page.has_css?('div#Content')
-  page.has_css?('div#Footer')
+  expect(page.has_css?('div#Header')).to eq true
+  expect(page.has_css?('div#Content')).to eq true
+  expect(page.has_css?('div#Footer')).to eq true
+  page.find('div#Sidebar a[href*="categoryId=FISH"]').click
+  page.find('div#Logo a[href="/jpetstore/actions/Catalog.action"]').click
+  page.find('div#Sidebar a[href*="categoryId=DOGS"]').click
+  page.find('div#Logo a[href="/jpetstore/actions/Catalog.action"]').click
+  page.find('div#Sidebar a[href*="categoryId=CATS"]').click
+  page.find('div#Logo a[href="/jpetstore/actions/Catalog.action"]').click
+  page.find('div#Sidebar a[href*="categoryId=REPTILES"]').click
+  page.find('div#Logo a[href="/jpetstore/actions/Catalog.action"]').click
+  page.find('div#Sidebar a[href*="categoryId=BIRDS"]').click
 end
