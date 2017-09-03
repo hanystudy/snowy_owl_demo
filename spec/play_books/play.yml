@@ -1,2 +1,12 @@
-- plot_name: 'login'
-- plot_name: 'navigate home page'
+- plot_name: login
+  digest: a1
+- plot_name: navigate shopping cart
+  parent: a3
+- plot_name: navigate home page
+- plot_name: navigate fish page
+- plot_name: navigate dogs page
+- plot_name: navigate reptiles page
+- plot_name: navigate cats page
+  parent: a1
+- plot_name: navigate birds page
+  digest: a3
