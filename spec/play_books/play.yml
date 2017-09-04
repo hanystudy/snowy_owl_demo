@@ -1,12 +1,24 @@
+---
 - plot_name: login
   digest: a1
 - plot_name: navigate shopping cart
+  digest: d02bd752bde01840012fa01f470551942c8707af
   parent: a3
 - plot_name: navigate home page
+  digest: c625c5325dd5d0704038f5e8e5bcd8ad934c231b
+  parent: d02bd752bde01840012fa01f470551942c8707af
 - plot_name: navigate fish page
+  digest: e3ab510e668c9bd1a5a8c635ef42d799058a83d8
+  parent: c625c5325dd5d0704038f5e8e5bcd8ad934c231b
 - plot_name: navigate dogs page
+  digest: db4c02d63f6890b3e4348551cda69d54a8f36f83
+  parent: e3ab510e668c9bd1a5a8c635ef42d799058a83d8
 - plot_name: navigate reptiles page
+  digest: 0b7c7e10d1ea47e66c063f4d73ad0064ea8ffedb
+  parent: db4c02d63f6890b3e4348551cda69d54a8f36f83
 - plot_name: navigate cats page
+  digest: 276ba4aa082d82ff9e0e05dbe228bb6e2557dd1f
   parent: a1
 - plot_name: navigate birds page
   digest: a3
+  parent: 276ba4aa082d82ff9e0e05dbe228bb6e2557dd1f

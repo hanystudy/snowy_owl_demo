@@ -6,4 +6,5 @@ gem "rspec-rerun"
 gem "capybara"
 gem 'selenium-webdriver'
 gem 'chromedriver-helper', '~> 1.0'
-gem 'snowy_owl', '~> 0.2.2'
+gem 'snowy_owl', '~> 0.4.0'
+gem 'rake'
